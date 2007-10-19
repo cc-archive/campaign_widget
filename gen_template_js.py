@@ -37,9 +37,11 @@ def main():
 
 	# Javascript-ify every item passed in
 	for filename in sys.argv[1:]:
-	    file('%s.js' % filename, 'w').write(
-	    		 jsify(subst_total(file(filename, 'r').read()))
-			 )
+		try:
+			new_contents = jsify(subst_total(file(filename, 'r').read()))
+			file('%s.js' % filename, 'w').write(new_contents)
+		except Exception, e:
+			pass
 
 if __name__ == '__main__':
 	main()
