@@ -23,14 +23,27 @@ def subst_total(in_string):
 	"""Replace occurences of {{total}} in in_string with the current
 	donation total."""
 
-	return in_string.replace("{{total}}", load_total())
-	
+	# update the progress bar total
+	result = in_string.replace("{{total}}", load_total())
+
+	return result
+
+def variable_subst(in_string):
+
+	SUBST_REGEX = r"(.*)(\[\[)([a-z_]+)(\]\])(.*)"
+
+	# do any variable subsitutions
+	return re.sub(SUBST_REGEX, '\g<1>" + \g<3> + "\g<5>', in_string)
+
 def jsify(in_string):
 	lines = in_string.split('\n')
 	if lines[0].startswith('<?xml version='):
 		lines = lines[1:]
 	for k in range(len(lines)):
-		lines[k] = "document.write(%s);" % json.write(lines[k].strip())
+		lines[k] = variable_subst(
+			"document.write(%s);" % json.write(lines[k].strip())
+			)
+
 	return '\n'.join(lines)
 
 def main():
