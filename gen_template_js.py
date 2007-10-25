@@ -17,7 +17,7 @@ def load_total():
        	total = urllib2.urlopen(
             'http://creativecommons.org/includes/total.txt').read().strip()
         
-        return locale.format('$ %d', locale.atoi(total), True)
+        return locale.format('$%d', locale.atoi(total), True)
 
 def subst_total(in_string):
 	"""Replace occurences of {{total}} in in_string with the current
