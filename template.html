@@ -1,25 +1,27 @@
   <link href="http://creativecommons.org/wp-content/themes/cc4/support.css?4.0" rel="stylesheet" type="text/css" />
   <link href="http://creativecommons.org/includes/progress.css?1911694604" rel="stylesheet" type="text/css" />
-  <link href="http://creativecommons.org/includes/widget.css?1.0" rel="stylesheet" type="text/css" />
+  <link href="http://creativecommons.org/includes/campaignwidget.css?1.0" rel="stylesheet" type="text/css" />
   
 <div id="cc_campaign_widget">
-<h1 id="cc_widget_title">[[cc_widget_title]]</h1>
-<p id="cc_widget_text">[[cc_widget_text]]</p>
-<div id="campaign">
-  <div class="progress" >
-    <span>&nbsp;</span>
+  <h1 id="cc_widget_title">[[cc_widget_title]]</h1>
+  <p id="cc_widget_text">[[cc_widget_text]]</p>
+  <div id="campaign">
+    <div class="progress" >
+      <span>&nbsp;</span>
+    </div>
+    <div class="results"><a href="http://support.creativecommons.org/">{{total}} / $500,000 by Dec 31</a></div>
   </div>
-  <div class="results"><a href="http://support.creativecommons.org/">{{total}} / $500,000 by Dec 31</a></div>
-</div>
 
-<form method="get" action="http://support.creativecommons.org/civicrm/contribute/transact">
+  <form method="get" action="http://support.creativecommons.org/civicrm/contribute/transact">
 
-<input name="donation" />
-<input name="reset" value="1" type="hidden" />
-<input name="id" value="1" type="hidden" />
+  $<input name="donation" value="25" size="6" />
+  <input name="reset" value="1" type="hidden" />
+  <input name="id" value="1" type="hidden" />
 
-<input type="submit" value="Donate!" />
+  &nbsp;<input type="submit" value="Donate!" />
 
-</form>
+  </form>
+  
+  <div id="cc_widget_get"><a href="http://support.creativecommons.org/widget"">Share this widget.</a></div>
 
 </div>
