@@ -11,13 +11,36 @@ import sys
 import urllib2
 import locale
 
+# http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/473872
+# by Edward Hartfield
+def number_format(num, places=0):
+   """Format a number with grouped thousands and given decimal places"""
+
+   places = max(0,places)
+   tmp = "%.*f" % (places, num)
+   point = tmp.find(".")
+   integer = (point == -1) and tmp or tmp[:point]
+   decimal = (point != -1) and tmp[point:] or ""
+
+   count =  0
+   formatted = []
+   for i in range(len(integer), 0, -1):
+       count += 1
+       formatted.append(integer[i - 1])
+       if count % 3 == 0 and i - 1:
+           formatted.append(",")
+
+   integer = "".join(formatted[::-1])
+   return integer+decimal
+   
+
 def load_total():
 	"""Load the total from the site, return it as a formatted string."""
 
        	total = urllib2.urlopen(
             'http://creativecommons.org/includes/total.txt').read().strip()
         
-        return locale.format('$%d', locale.atoi(total), True)
+        return locale.format('$%s', number_format(locale.atoi(total)), True)
 
 def subst_total(in_string):
 	"""Replace occurences of {{total}} in in_string with the current
