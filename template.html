@@ -2,7 +2,8 @@
   <link href="http://creativecommons.org/includes/progress.css?1911694604" rel="stylesheet" type="text/css" />
   <link href="http://creativecommons.org/includes/campaignwidget.css?1.0" rel="stylesheet" type="text/css" />
   
-<div id="cc_campaign_widget">
+<div id="cc_campaign_widget" class="[[cc_widget_size]]">
+ <div id="cc_campaign_widget_bg">
   <h1 id="cc_widget_title">[[cc_widget_title]]</h1>
   <p id="cc_widget_text">[[cc_widget_text]]</p>
   <div id="campaign">
@@ -14,7 +15,7 @@
 
   <form method="get" action="http://support.creativecommons.org/civicrm/contribute/transact">
 
-  $<input name="donation" value="25" size="6" />
+  $<input id="cc_widget_donation" name="donation" value="[[cc_widget_d_amt]]" size="6" />
   <input name="reset" value="1" type="hidden" />
   <input name="id" value="1" type="hidden" />
 
@@ -22,6 +23,6 @@
 
   </form>
   
-  <div id="cc_widget_get"><a href="http://support.creativecommons.org/widget"">Share this widget.</a></div>
-
+  <div id="cc_widget_get"><a href="http://support.creativecommons.org/widget" id="cc_widget_share">[[cc_widget_share]]</a></div>
+ </div>
 </div>
