@@ -11,6 +11,10 @@
     </div>
     <div class="results"><a href="http://support.creativecommons.org/">{{total}} / $500,000 by&nbsp;Dec 31</a></div>
   </div>
+  <div id="donors">
+   <strong>Donor Count</strong><br/>
+   <a href="http://support.creativecommons.org/">{{num_donors}}</a>
+  </div>
 
   <form method="get" action="http://support.creativecommons.org/civicrm/contribute/transact">
 
