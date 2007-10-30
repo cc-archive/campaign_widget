@@ -42,12 +42,23 @@ def load_total():
         
         return locale.format('$%s', number_format(locale.atoi(total)), True)
 
+
+def load_qty():
+	"""Load the total number of donors from the site, return it as a 
+        formatted string."""
+
+       	total = urllib2.urlopen(
+            'http://creativecommons.org/includes/number.txt').read().strip()
+        
+        return locale.format('%s', number_format(locale.atoi(total)), True)
+
 def subst_total(in_string):
 	"""Replace occurences of {{total}} in in_string with the current
 	donation total."""
 
 	# update the progress bar total
 	result = in_string.replace("{{total}}", load_total())
+        result = result.replace("{{num_donors}}", load_qty())
 
 	return result
 
