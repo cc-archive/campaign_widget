@@ -1,8 +1,8 @@
-  <link href="http://creativecommons.org/includes/progress.css?1911694604" rel="stylesheet" type="text/css" />
-  <link href="http://creativecommons.org/includes/campaignwidget.css?1.0" rel="stylesheet" type="text/css" />
+  <link href="http://creativecommons.org/includes/progress.css" rel="stylesheet" type="text/css" />
+  <link href="http://creativecommons.org/includes/campaignwidget.css?1.0.1" rel="stylesheet" type="text/css" />
   
 <div id="cc_campaign_widget" class="[[cc_widget_size]]">
- <div id="cc_campaign_widget_bg">
+ <div id="cc_campaign_widget_bg"><div id="cc_campaign_widget_bg_logo">
   <h1 id="cc_widget_title"><span>Creative Commons</span></h1>
   <p id="cc_widget_text">[[cc_widget_text]]</p>
   <div id="campaign">
@@ -27,5 +27,5 @@
   </form>
   
   <div id="cc_widget_get"><a href="http://support.creativecommons.org/widget" id="cc_widget_share">[[cc_widget_share]]</a></div>
- </div>
+ </div></div>
 </div>
