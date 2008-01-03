@@ -1,19 +1,12 @@
   <link href="http://creativecommons.org/includes/progress.css" rel="stylesheet" type="text/css" />
-  <link href="http://creativecommons.org/includes/campaignwidget.css?1.0.1" rel="stylesheet" type="text/css" />
+  <link href="http://creativecommons.org/includes/campaignwidget.css?1.1.0" rel="stylesheet" type="text/css" />
   
 <div id="cc_campaign_widget" class="[[cc_widget_size]]">
  <div id="cc_campaign_widget_bg"><div id="cc_campaign_widget_bg_logo">
   <h1 id="cc_widget_title"><span>Creative Commons</span></h1>
   <p id="cc_widget_text">[[cc_widget_text]]</p>
-  <div id="campaign">
-    <div class="progress" >
-      <span>&nbsp;</span>
-    </div>
-    <div class="results"><a href="http://support.creativecommons.org/">{{total}} / $500,000 by&nbsp;Dec 31</a></div>
-  </div>
   <div id="donors">
-   <strong>Supporters</strong><br/>
-   <a href="http://support.creativecommons.org/">{{num_donors}} have contributed</a>
+   <strong>Help support Creative Commons</strong><br/>
   </div>
 
   <form method="get" action="http://support.creativecommons.org/civicrm/contribute/transact">
