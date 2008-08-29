@@ -73,6 +73,7 @@ def jsify(in_string):
 	lines = in_string.split('\n')
 	if lines[0].startswith('<?xml version='):
 		lines = lines[1:]
+        
 	for k in range(len(lines)):
 		lines[k] = variable_subst(
 			"document.write(%s);" % json.write(lines[k].strip())
@@ -81,14 +82,14 @@ def jsify(in_string):
 	return '\n'.join(lines)
 
 def main():
-
-	# Javascript-ify every item passed in
-	for filename in sys.argv[1:]:
-		try:
-			new_contents = jsify(subst_total(file(filename, 'r').read()))
-			file('%s.js' % filename, 'w').write(new_contents)
-		except Exception, e:
-			pass
+   assert len(sys.argv) == 2
+   infile = sys.argv[1]
+   template = open('template.js').read()
+   escaped = json.write(subst_total(open(infile).read()))
+   template = template.replace("'REPLACEME'", escaped)
+   fd = open(infile + '.js', 'w')
+   fd.write(template)
+   fd.close()
 
 if __name__ == '__main__':
 	main()
