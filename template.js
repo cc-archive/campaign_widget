@@ -22,8 +22,7 @@
 			}
 			
 			// FIXME: Decide what to do with styles
-			var my_div = document.createElement('DIV');
-			my_div.innerHTML = innards;
+			$.w.innerHTML = innards;
 			
 			theScripts[i].parentNode.insertBefore($.w, theScripts[i]);
 			theScripts[i].parentNode.removeChild(theScripts[i]);
@@ -48,7 +47,7 @@
 	};
     }();
     
-    var thisScript = /contribute.js/;
+    var thisScript = /widget.js/;
     var stuff_inside_the_div = 'REPLACEME';
     if (typeof window.addEventListener !== 'undefined') {
 	window.addEventListener('load', function() { $.f.init(thisScript, stuff_inside_the_div); }, false);
