@@ -90,7 +90,7 @@ def main():
    template = open('template.js').read()
    escaped = json.write(subst_total(open(infile).read()))
    template = template.replace("'REPLACEME'", escaped)
-   template = template.replace('["css_files"]', json.write(css_links_as_list))
+   template = template.replace("['css_files']", json.write(css_links_as_list))
    fd = open(infile + '.js', 'w')
    fd.write(template)
    fd.close()

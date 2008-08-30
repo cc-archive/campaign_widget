@@ -7,7 +7,15 @@
     var $ = window[trueName];
     $.f = function() {
 	return {
-	    init: function(target, innards) {
+	    add_css_link: function(css_link) {
+		alert(css_link);
+	    },
+	    init: function(target, innards, css_links) {
+		/* Insert the CSS links into the document */
+		for (var i = 0 ; i < css_links.length; i++) {
+		    $.f.add_css_link(css_links[i]);
+		}
+
 		var theScripts = document.getElementsByTagName('SCRIPT');
 		for (var i = 0 ; i < theScripts.length; i++) {
 		    if (theScripts[i].src.match(target)) {
@@ -48,11 +56,12 @@
     }();
     
     var thisScript = /widget.js/;
+    var css_files = ['css_files'];
     var stuff_inside_the_div = 'REPLACEME';
     if (typeof window.addEventListener !== 'undefined') {
-	window.addEventListener('load', function() { $.f.init(thisScript, stuff_inside_the_div); }, false);
+	window.addEventListener('load', function() { $.f.init(thisScript, stuff_inside_the_div, css_files); }, false);
     } else {
-	window.attachEvent('onload', function() { $.f.init(thisScript, stuff_inside_the_div); });
+	window.attachEvent('onload', function() { $.f.init(thisScript, stuff_inside_the_div, css_files); });
     }
 })();
 
