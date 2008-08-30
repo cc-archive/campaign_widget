@@ -8,7 +8,20 @@
     $.f = function() {
 	return {
 	    add_css_link: function(css_link) {
-		alert(css_link);
+		/* Create a link in the HEAD */
+		var head = document.getElementsByTagName('head')[0];
+		if (!head) {
+		    // the jokes just write themselves
+		    // but apparently Opera doesn't have to have a head
+		    var body = document.getElementsByTagName('body')[0];
+		    head = document.createElement('head');
+		    body.parentNode.insertBefore(head, body);
+		}
+		stylesheet = document.createElement('link');
+		stylesheet.rel = 'stylesheet';
+		stylesheet.type = 'text/css';
+		stylesheet.href = css_link;
+		head.appendChild(stylesheet)
 	    },
 	    init: function(target, innards, css_links) {
 		/* Insert the CSS links into the document */
