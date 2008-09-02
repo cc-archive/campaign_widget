@@ -53,7 +53,7 @@
 	    },
 	    parseJson: function(json) {
 		this.parseJson.data = json;
-		if (typeof jason !== 'string') {
+		if (typeof json !== 'string') {
 		    return {'err': 'trying to parse non-string as JSON'};
 		}
 		try {
