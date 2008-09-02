@@ -8,14 +8,14 @@
 
   <form method="get" action="http://support.creativecommons.org/civicrm/contribute/transact">
 
-  $<input id="cc_widget_donation" name="donation" value="[[d_amount]]" size="6" />
+  $<input id="cc_widget_donation" name="donation" value="[[d_amt]]" size="6" />
   <input name="reset" value="1" type="hidden" />
   <input name="id" value="1" type="hidden" />
 
-  &nbsp;<input type="submit" id="cc_widget_donation_btn" value="[[d_button]]" />
+  &nbsp;<input type="submit" id="cc_widget_donation_btn" value="[[d_btn]]" />
 
   </form>
   
-  <div id="cc_widget_get"><a href="http://support.creativecommons.org/widget" id="cc_widget_share">[[share_text]]</a></div>
+  <div id="cc_widget_get"><a href="http://support.creativecommons.org/widget" id="cc_widget_share">[[share]]</a></div>
  </div></div>
 </div>
