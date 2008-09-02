@@ -82,15 +82,19 @@ def jsify(in_string):
 	return '\n'.join(lines)
 
 def main():
-   assert len(sys.argv) == 3
+   assert len(sys.argv) == 4
    infile = sys.argv[1]
    css_links = sys.argv[2]
+   backwards_compat_prefix_file = sys.argv[3]
+
    css_links_as_list = open(css_links).read().split()
+   backwards_compat_prefix = open(backwards_compat_prefix_file).read().strip()
 
    template = open('template.js').read()
    escaped = json.write(subst_total(open(infile).read()))
    template = template.replace("'REPLACEME'", escaped)
    template = template.replace("['css_files']", json.write(css_links_as_list))
+   template = template.replace("'BACKWARDS_COMPAT_PREFIX'", json.write(backwards_compat_prefix))
    fd = open(infile + '.js', 'w')
    fd.write(template)
    fd.close()

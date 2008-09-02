@@ -7,7 +7,7 @@ up_to_date:
 	svn up > /dev/null
 
 template.en_US.js: widget gen_template_js.py
-	python2.4 gen_template_js.py widget widget.css-links
+	python2.4 gen_template_js.py widget widget.css-links widget.backwards-compat-prefix
 
 clean:
 	rm -f $(shell ls -1 widget.*js*)

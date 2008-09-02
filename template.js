@@ -23,7 +23,7 @@
 		stylesheet.href = css_link;
 		head.appendChild(stylesheet)
 	    },
-	    init: function(target, innards, css_links) {
+	    init: function(target, innards, css_links, backwards_compat_prefix) {
 		/* Insert the CSS links into the document */
 		for (var i = 0 ; i < css_links.length; i++) {
 		    $.f.add_css_link(css_links[i]);
@@ -35,6 +35,20 @@
 			$.w = document.createElement('DIV');
 			$.a = {};
 			
+			var variable;
+
+			var old_data = [];
+			// if backwards_compat_prefix is not null
+			if (backwards_compat_prefix != null) {
+			    // attempt to import data from window's global variables (for backwards compatibility)
+			    for (variable in window) {
+				// if it starts with the right thing, stash it away
+				if (variable.substring(backwards_compat_prefix.length, 0) == backwards_compat_prefix) {
+				    old_data[variable.substring(backwards_compat_prefix.length)] = window[variable];
+				}
+			    }
+			}
+			
 			if (theScripts[i].innerHTML) {
 			    $.a = $.f.parseJson(theScripts[i].innerHTML);
 			}
@@ -42,6 +56,15 @@
 			    alert('bad json!');
 			}
 
+			for (variable in old_data) {
+			    if (variable in $.a) {
+				// do nothing - we have a version of this datum in new format
+			    }  else {
+				// jam into $.a
+				$.a[variable] = old_data[variable];
+			    }
+			}
+			
 			// Take the text replacement stuff from JSON blah blah
 			for (variable in $.a) {
                             innards = innards.replace('[[' + variable +']]', $.a[variable]);
@@ -76,10 +99,11 @@
     var thisScript = /widget.js/;
     var css_files = ['css_files'];
     var stuff_inside_the_div = 'REPLACEME';
+    var backwards_compat_prefix = 'BACKWARDS_COMPAT_PREFIX';
     if (typeof window.addEventListener !== 'undefined') {
-	window.addEventListener('load', function() { $.f.init(thisScript, stuff_inside_the_div, css_files); }, false);
+	window.addEventListener('load', function() { $.f.init(thisScript, stuff_inside_the_div, css_files, backwards_compat_prefix); }, false);
     } else {
-	window.attachEvent('onload', function() { $.f.init(thisScript, stuff_inside_the_div, css_files); });
+	window.attachEvent('onload', function() { $.f.init(thisScript, stuff_inside_the_div, css_files, backwards_compat_prefix); });
     }
 })();
 
