@@ -7,6 +7,26 @@
     var $ = window[trueName];
     $.f = function() {
 	return {
+	    get_win: function() {
+		var win = window;
+		if(navigator.userAgent.toLowerCase().indexOf("msie")>=0 && window["ActiveXObject"]) {
+		    // no way to enumerate them, so we brute force them out
+		    // inspired by http://www.thomasfrank.se/global_namespace.html
+		    var allt="";
+		    var x=document.scripts;
+		    for (var i=0;i<x.length;i++){
+			if (x[i].innerHTML){allt+=x[i].innerHTML}
+			else {if((x[i].src+"").indexOf("undefined")<0){allt+=this.getsrc(x[i].src)}}
+		    };
+		    allt=allt.replace(/\W/g," ").split(" ");
+		    var obj={};
+		    for(var i=0;i<allt.length;i++){if(window[allt[i]]!==undefined){obj[allt[i]]=true}};
+		    for(var i in window){obj[i]=true};
+		    win = obj;
+		}
+		return win;
+	    },
+		    
 	    add_css_link: function(css_link) {
 		/* Create a link in the HEAD */
 		var head = document.getElementsByTagName('head')[0];
@@ -41,7 +61,7 @@
 			// if backwards_compat_prefix is not null
 			if (backwards_compat_prefix != null) {
 			    // attempt to import data from window's global variables (for backwards compatibility)
-			    for (variable in window) {
+			    for (variable in $.f.get_win()) {
 				// if it starts with the right thing, stash it away
 				if (variable.substring(backwards_compat_prefix.length, 0) == backwards_compat_prefix) {
 				    old_data[variable.substring(backwards_compat_prefix.length)] = window[variable];
