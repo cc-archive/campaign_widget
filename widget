@@ -1,14 +1,14 @@
-<div id="cc_campaign_widget" class="[[cc_widget_size]]">
+<div id="cc_campaign_widget" class="[[size]]">
  <div id="cc_campaign_widget_bg"><div id="cc_campaign_widget_bg_logo">
   <h1 id="cc_widget_title"><span>Creative Commons</span></h1>
-  <p id="cc_widget_text">[[cc_widget_text]]</p>
+  <p id="cc_widget_text">[[text]]</p>
   <div id="donors">
    <strong>Help support Creative Commons</strong><br/>
   </div>
 
   <form method="get" action="http://support.creativecommons.org/civicrm/contribute/transact">
 
-  $<input id="cc_widget_donation" name="donation" value="[[cc_widget_d_amt]]" size="6" />
+  $<input id="cc_widget_donation" name="donation" value="[[d_amount]]" size="6" />
   <input name="reset" value="1" type="hidden" />
   <input name="id" value="1" type="hidden" />
 
@@ -16,6 +16,6 @@
 
   </form>
   
-  <div id="cc_widget_get"><a href="http://support.creativecommons.org/widget" id="cc_widget_share">[[cc_widget_share]]</a></div>
+  <div id="cc_widget_get"><a href="http://support.creativecommons.org/widget" id="cc_widget_share">[[share_text]]</a></div>
  </div></div>
 </div>

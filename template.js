@@ -41,6 +41,11 @@
 			if ($.a.err) {
 			    alert('bad json!');
 			}
+
+			// Take the text replacement stuff from JSON blah blah
+			for (variable in $.a) {
+                            innards = innards.replace('[[' + variable +']]', $.a[variable]);
+                        }
 			
 			// FIXME: Decide what to do with styles
 			$.w.innerHTML = innards;
