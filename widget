@@ -12,7 +12,7 @@
   <input name="reset" value="1" type="hidden" />
   <input name="id" value="1" type="hidden" />
 
-  &nbsp;<input type="submit" id="cc_widget_donation_btn" value="Donate" />
+  &nbsp;<input type="submit" id="cc_widget_donation_btn" value="[[d_button]]" />
 
   </form>
   
