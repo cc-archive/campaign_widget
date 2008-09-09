@@ -10,7 +10,7 @@
 
   $<input id="cc_widget_donation" name="donation" value="[[d_amt]]" size="6" />
   <input name="reset" value="1" type="hidden" />
-  <input name="id" value="1" type="hidden" />
+  <input name="id" value="7" type="hidden" />
 
   &nbsp;<input type="submit" id="cc_widget_donation_btn" value="[[d_btn]]" />
 
