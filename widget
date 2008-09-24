@@ -3,7 +3,7 @@
   <h1 id="cc_widget_title"><span>Creative Commons</span></h1>
   <p id="cc_widget_text">[[text]]</p>
   <div id="donors">
-   <strong>Help support Creative Commons</strong><br/>
+    Help support Creative Commons<br/>
   </div>
 
   <form method="get" action="http://support.creativecommons.org/civicrm/contribute/transact">
